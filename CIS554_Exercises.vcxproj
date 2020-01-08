@@ -147,9 +147,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Exercise1.cpp" />
-    <ClCompile Include="Exercise2.cpp" />
-    <ClCompile Include="Exercise3.cpp" />
+    <ClCompile Include="Exercise1.1.cpp" />
+    <ClCompile Include="Exercise1.2.cpp" />
+    <ClCompile Include="Exercise1.3.cpp" />
+    <ClCompile Include="Exercise2.1.cpp" />
+    <ClCompile Include="Exercise2.2.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -10,6 +10,7 @@ using std::cout;
 using std::cin;
 using std::endl;
 
+/*
 //function main begins program execution
 int main()
 {
@@ -43,3 +44,4 @@ int main()
 	if (result >= number3)
 		cout << result << " >= " << number3 << endl;
 } // end function main
+*/
