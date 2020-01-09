@@ -1,35 +1,15 @@
 ///////////////////////////////////////////////
 // CIS554 Object Oriented Programming in C++
-// Exercise 2_2 - Simple Class
-// Date - 1/7/2020
+// Exercise 2_4 - Simple Class
+// Date - 1/9/2020
 ///////////////////////////////////////////////
+
 #include <iostream>
+#include "SimpleMath.h"
 using std::cout;
 using std::cin;
 using std::endl;
 
-class SimpleMath
-{
-private:
-	int number1, number2, result = 0;
-
-public:
-	// simple Add method
-	int Add(int number1, int number2)
-	{
-		result = number1 + number2;
-		return result;
-	}
-
-	// simple Multiply method
-	int Multiply(int number1, int number2)
-	{
-		result = number1 * number2;
-		return result;
-	}
-};
-
-/*
 int main()
 {
 	// declare an object of type SimpleMath
@@ -41,7 +21,7 @@ int main()
 	int result = 0;
 
 	// prompt user for input
-	cout << "Enter first number: ";
+	cout << "Enter first number2: ";
 	cin >> number1;
 	cout << "Enter second number: ";
 	cin >> number2;
@@ -56,4 +36,3 @@ int main()
 
 	return 0;
 }
-*/
