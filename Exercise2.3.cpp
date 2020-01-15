@@ -36,7 +36,7 @@ public:
 		return result;
 	}
 };
-
+/*
 int main()
 {
 	int number1 = 5;
@@ -55,3 +55,4 @@ int main()
 
 	return 0;
 }
+*/
