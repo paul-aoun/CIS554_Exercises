@@ -8,6 +8,7 @@ using std::cout;
 using std::cin;
 using std::endl;
 
+/*
 int main()
 {
 	int loopSize = 0;
@@ -20,3 +21,4 @@ int main()
 
 	return 0;
 }
+*/
