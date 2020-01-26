@@ -2,22 +2,23 @@
 // Paul Aoun										//
 // CIS 554-M401 Object Oriented Programming in C++  //
 //													//
-// Exercise 4.1 - Part B							//
+// Exercise 4.1 - Part A							//
 //													//
 // 1/23/2020										//
 //												    //
-// This is the main file with a function for Part B	//
+// This is the main file with a function for Part A	//
 //////////////////////////////////////////////////////
 #include <iostream>
 using std::cout;
 using std::cin;
 using std::endl;
 
-//Function implementing Part B. The program will output the days in 
-//reverse order.
-void partB() {
 
-	for (int currentDay = 7; currentDay >= 1; currentDay--)
+//Function implementing Part A. The program will output the days in 
+//order.
+/*void partA() {
+
+	for (int currentDay = 1; currentDay <= 7; currentDay++)
 
 		switch (currentDay)
 		{
@@ -45,12 +46,13 @@ void partB() {
 		default: cout << "Not an allowable day number \n";
 			break;
 		}
-}
+}*/
 
-//The requirements could have been implemented in 1 program with three functions partA(), partB(), and partC(). Broken in 3 programs as per the instructions.
+//The requirements could have been implemented in 1 program with three functions. Broken in 3 programs to follow the requirements.
 /*int main()
 {
-	partB();
+
+	partA();
 
 	return 0;
 }*/

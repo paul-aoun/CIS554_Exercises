@@ -2,11 +2,11 @@
 // Paul Aoun										//
 // CIS 554-M401 Object Oriented Programming in C++  //
 //													//
-// Exercise 4.2 - Part A							//
+// Exercise 4.2 - Part B							//
 //													//
 // 1/25/2020										//
 //												    //
-// This is the main file with a function for Part A	//
+// This is the main file with a function for Part B	//
 //////////////////////////////////////////////////////
 #include <iostream>
 using std::cout;
@@ -14,13 +14,11 @@ using std::cin;
 using std::endl;
 
 
-//Function implementing Part A. The program will output the days in 
-//order.
-void partA() {
+//Function implementing Part B. The program will output the days in 
+//order and will skip Thursday using continue. 
+void partB() {
 
-	bool isItWednesday = false;
-
-	for (int currentDay = 1; currentDay <= 7; currentDay++) {
+	for (int currentDay = 1; currentDay <= 7; currentDay++) 
 
 		switch (currentDay)
 		{
@@ -35,9 +33,9 @@ void partA() {
 			break;
 		case 4:
 			cout << "Day " << currentDay << " = Wednesday \n";
-			isItWednesday = true;
 			break;
 		case 5:
+			continue; //Using continue to skip Thursday
 			cout << "Day " << currentDay << " = Thursday \n";
 			break;
 		case 6:
@@ -49,17 +47,13 @@ void partA() {
 		default: cout << "Not an allowable day number \n";
 			break;
 		}
-
-		if (isItWednesday == true)
-			break;
-	}
 }
 
 //The requirements could have been implemented in 1 program with three functions. Broken in 3 programs to follow the requirements.
 int main()
 {
 
-	partA();
+	partB();
 
 	return 0;
 }

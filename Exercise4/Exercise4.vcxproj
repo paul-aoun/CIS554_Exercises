@@ -18,13 +18,19 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Exercise4.1-PartA.cpp" />
+    <ClCompile Include="Exercise4.1-PartB.cpp" />
+    <ClCompile Include="Exercise4.1-PartC.cpp" />
+    <ClCompile Include="Exercise4.2-PartA.cpp" />
+    <ClCompile Include="Exercise4.2-PartB.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
-    <ProjectGuid>{9B860ADC-CE17-4281-9B3E-388CD1CB6616}</ProjectGuid>
+    <ProjectGuid>{3103505B-5C96-46F0-BBF6-55F168734CB9}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>Exercise41</RootNamespace>
+    <RootNamespace>Exercise4</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
-    <ProjectName>Exercises4</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -147,12 +153,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="Exercise4.1-PartA.cpp" />
-    <ClCompile Include="Exercise4.1-PartB.cpp" />
-    <ClCompile Include="Exercise4.1-PartC.cpp" />
-    <ClCompile Include="Exercise4.2-Part A.cpp" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
