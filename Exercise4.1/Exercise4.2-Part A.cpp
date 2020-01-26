@@ -2,9 +2,9 @@
 // Paul Aoun										//
 // CIS 554-M401 Object Oriented Programming in C++  //
 //													//
-// Exercise 4.1 - Part A							//
+// Exercise 4.2 - Part A							//
 //													//
-// 1/23/2020										//
+// 1/25/2020										//
 //												    //
 // This is the main file with a function for Part A	//
 //////////////////////////////////////////////////////
@@ -18,7 +18,9 @@ using std::endl;
 //order.
 void partA() {
 
-	for (int currentDay = 1; currentDay <= 7; currentDay++)
+	bool isItWednesday = false;
+
+	for (int currentDay = 1; currentDay <= 7; currentDay++) {
 
 		switch (currentDay)
 		{
@@ -33,6 +35,7 @@ void partA() {
 			break;
 		case 4:
 			cout << "Day " << currentDay << " = Wednesday \n";
+			isItWednesday = true;
 			break;
 		case 5:
 			cout << "Day " << currentDay << " = Thursday \n";
@@ -46,13 +49,17 @@ void partA() {
 		default: cout << "Not an allowable day number \n";
 			break;
 		}
+
+		if (isItWednesday == true)
+			break;
+	}
 }
 
 //The requirements could have been implemented in 1 program with three functions. Broken in 3 programs to follow the requirements.
-/*int main()
+int main()
 {
 
 	partA();
 
 	return 0;
-}*/
+}
