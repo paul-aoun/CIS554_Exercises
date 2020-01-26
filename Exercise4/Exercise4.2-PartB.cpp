@@ -50,10 +50,10 @@ void partB() {
 }
 
 //The requirements could have been implemented in 1 program with three functions. Broken in 3 programs to follow the requirements.
-int main()
+/*int main()
 {
 
 	partB();
 
 	return 0;
-}
+}*/

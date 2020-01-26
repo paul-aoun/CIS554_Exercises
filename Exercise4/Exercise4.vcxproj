@@ -24,6 +24,7 @@
     <ClCompile Include="Exercise4.1-PartC.cpp" />
     <ClCompile Include="Exercise4.2-PartA.cpp" />
     <ClCompile Include="Exercise4.2-PartB.cpp" />
+    <ClCompile Include="Exercise4.3.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
