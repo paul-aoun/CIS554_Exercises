@@ -30,23 +30,68 @@ int main()
 
 	Customer customer;
 
-	//Will loop until the user exits by entering -1 for any time value. 
-	//It will validate all inputs and then returns the seconds elapsed since noon. 
+	//Will loop until the user exits by entering -1 for any input value. 
+	//It will validate all inputs and then returns the balance, if below the credit limit. Or, the statement and the balance, if above the credit limit. 
 	std::cout << "Enter the customer financial data below (-1 to stop): \n";
 	do
 	{
-
-		accountNumber = Utilities::getIntInputValidate("Enter account number (or -1 to quit): ");
+		//Input the account number and validate.
+		accountNumber = Utilities::getIntInputValidate("Enter account number (or -1 to quit): ", "Account Number");
 		if (accountNumber == -1)
 		{
 			break;
 		}
+		else
+		{
+			customer.setAccountNumber(accountNumber);
+		}
 
-		beginningBalance = Utilities::getDoubleInputValidate("Enter beginning balance: ");
-		totalMonthlyCharges = Utilities::getDoubleInputValidate("Enter total charges: ");
-		totalMonthlyCreditsApplied = Utilities::getDoubleInputValidate("Enter total credits: ");
-		allowedCreditLimit = Utilities::getDoubleInputValidate("Enter credit limit: ");
+		//Input the beginning balance and validate.
+		beginningBalance = Utilities::getDoubleInputValidate("Enter beginning balance: ", "Beginning Balance");
+		if (beginningBalance == -1)
+		{
+			break;
+		}
+		else
+		{
+			customer.setBeginningBalance(beginningBalance);
+		}
+		
+		//Input the total monthly charges and validate.
+		totalMonthlyCharges = Utilities::getDoubleInputValidate("Enter total charges: ", "Total Monthly Charges");
+		if (totalMonthlyCharges == -1)
+		{
+			break;
+		}
+		else
+		{
+			customer.setTotalMonthlyCharges(totalMonthlyCharges);
+		}
+		
+		//Input the total monthly credits and validate.
+		totalMonthlyCreditsApplied = Utilities::getDoubleInputValidate("Enter total credits: ", "Monthly Credits Applied");
+		if (totalMonthlyCreditsApplied == -1)
+		{
+			break;
+		}
+		else
+		{
+			customer.setTotalMonthlyCreditsApplied(totalMonthlyCreditsApplied);
+		}
 
+		//Input the allowed credit limit and validate.
+		allowedCreditLimit = Utilities::getDoubleInputValidate("Enter credit limit: ", "Allowed Credit Limit");
+		if (allowedCreditLimit == -1)
+		{
+			break;
+		}
+		else
+		{
+			customer.setAllowedCreditLimit(allowedCreditLimit);
+		}
+
+		//Calculate the customer new balance, based on the input values and print:
+		//balance or balance and statement, if the balance is above the credit limit.
 		customer.calculateNewBalance();
 		if (customer.getAllowedCreditLimit() < customer.getBalance())
 		{
@@ -56,7 +101,6 @@ int main()
 		{
 			std::cout << "New balance is " << customer.getBalance() << "\n";
 		}
-
 
 	} while (true);
 

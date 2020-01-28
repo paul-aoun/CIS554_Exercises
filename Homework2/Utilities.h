@@ -14,6 +14,6 @@
 class Utilities
 {
 public:
-	static int getIntInputValidate(std::string);
-	static double getDoubleInputValidate(std::string);
+	static int getIntInputValidate(std::string, std::string);
+	static double getDoubleInputValidate(std::string, std::string);
 };

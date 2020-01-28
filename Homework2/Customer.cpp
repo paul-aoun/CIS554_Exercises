@@ -116,12 +116,14 @@ void Customer::calculateNewBalance()
 
 }
 
-//Prepares the customer's statement.
+////Prepares and returns the customer financial statement
 std::string Customer::getCustomerFinancialStatement()
 {
 	std::string statement{ "" };
 	statement = "Account:      " + std::to_string(accountNumber) + "\n";
 	statement += "Credit limit: " + std::to_string(allowedCreditLimit) + "\n";
 	statement += "Balance:      " + std::to_string(balance) + "\n";
+
+	return statement;
 
 }

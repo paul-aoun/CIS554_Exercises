@@ -56,6 +56,7 @@ public:
 	//Getter function for Customer balance.
 	double getBalance();
 
+	//Prepares and returns the customer financial statement
 	std::string getCustomerFinancialStatement();
 
 };
