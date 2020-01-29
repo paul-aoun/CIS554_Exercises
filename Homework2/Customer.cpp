@@ -121,6 +121,8 @@ std::string Customer::getCustomerFinancialStatement()
 {
 	std::string statement{ "" };
 	statement = "Account:      " + std::to_string(accountNumber) + "\n";
+	std::size_t dotPosition = statement.find(".");      // position of "." in string
+	std::string str3 = statement.substr(dotPosition + 2);
 	statement += "Credit limit: " + std::to_string(allowedCreditLimit) + "\n";
 	statement += "Balance:      " + std::to_string(balance) + "\n";
 

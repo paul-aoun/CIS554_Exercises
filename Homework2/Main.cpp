@@ -14,6 +14,7 @@
 // financical paramters and calcutes the balance.	//
 //////////////////////////////////////////////////////
 #include <iostream>
+#include <iomanip>
 #include "Utilities.h"
 #include "Customer.h"
 
@@ -90,18 +91,21 @@ int main()
 			customer.setAllowedCreditLimit(allowedCreditLimit);
 		}
 
+		//Beautify the output to print with 2 decimal points using fixed notation
+		std::cout << std::fixed << std::setprecision(2); 
+
 		//Calculate the customer new balance, based on the input values and print:
 		//balance or balance and statement, if the balance is above the credit limit.
 		customer.calculateNewBalance();
+		std::cout << "New balance is " << customer.getBalance() << "\n";
 		if (customer.getAllowedCreditLimit() < customer.getBalance())
 		{
-			std::cout << customer.getCustomerFinancialStatement() + "Credit Limit Exceeded. \n";
+			std::cout << "Account:       " << customer.getAccountNumber() << "\n";
+			std::cout << "Credit limit:  " << customer.getAllowedCreditLimit() << "\n";
+			std::cout << "Balance:       " << customer.getBalance() << "\n";
+			std::cout << "Credit Limit Exceeded. \n";
 		}
-		else if (customer.getAllowedCreditLimit() >= customer.getBalance())
-		{
-			std::cout << "New balance is " << customer.getBalance() << "\n";
-		}
-
+		std::cout << "\n"; //New line to separate the outputs
 	} while (true);
 
 };
