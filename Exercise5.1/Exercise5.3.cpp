@@ -54,7 +54,7 @@ public:
 };
 
 //Driver function for Exercise 5.3.
-int main()
+/*int main()
 {
 	int num1{ 0 };
 	int num2{ 0 };
@@ -79,4 +79,4 @@ int main()
 	cout << "Max Value (with number 4) = " << max.GetMaximumValue(num1, num2, num3, num4) << endl;
 
 	return 0;
-}
+}*/
