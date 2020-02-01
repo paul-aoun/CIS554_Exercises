@@ -40,7 +40,7 @@ public:
 	}
 };
 
-//Driver function for Exercise 5.3.
+//Driver function for Exercise 5.2.
 int main()
 {
 	int num1{ 0 };
