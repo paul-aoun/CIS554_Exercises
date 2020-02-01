@@ -59,7 +59,7 @@ int getIntInputValidate(std::string inputName)
 
 //Main function. It loops asking the user for the time and calculating how many seconds 
 //elapsed since noon. It will exit when the user enters -1 as any time input.
-int main()
+/*int main()
 {
 	bool continueLooping{ true };
 
@@ -107,4 +107,4 @@ int main()
 
 	} while (true);
 
-}
+}*/
