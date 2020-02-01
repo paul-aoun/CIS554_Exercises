@@ -147,6 +147,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Exercise5.2.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="TimeDiff.cpp" />
   </ItemGroup>
