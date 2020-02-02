@@ -3,7 +3,7 @@
 #include <iostream>
 #include "maximum.h" //include definition of function template maximum
 using namespace std;
-
+/*
 int main()
 {
 	// demonstrate maximum with int values
@@ -36,3 +36,4 @@ int main()
 	cout << "The maximum char value is: "
 		<< maximum(char1, char2, char3, char4);
 } // end main
+*/

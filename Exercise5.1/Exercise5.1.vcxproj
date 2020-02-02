@@ -149,13 +149,16 @@
   <ItemGroup>
     <ClCompile Include="Exercise5.2.cpp" />
     <ClCompile Include="Exercise5.3.cpp" />
+    <ClCompile Include="Exercise5.5.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Main5.4.cpp" />
     <ClCompile Include="TimeDiff.cpp" />
+    <ClCompile Include="Utilities.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="maximum.h" />
     <ClInclude Include="TimeDiff.h" />
+    <ClInclude Include="Utilities.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
