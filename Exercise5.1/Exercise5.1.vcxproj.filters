@@ -36,6 +36,9 @@
     <ClCompile Include="Main5.5.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Exercise5.6.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TimeDiff.h">
