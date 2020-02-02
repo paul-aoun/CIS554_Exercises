@@ -149,6 +149,7 @@
   <ItemGroup>
     <ClCompile Include="Exercise5.2.cpp" />
     <ClCompile Include="Exercise5.3.cpp" />
+    <ClCompile Include="Exercise5.6.cpp" />
     <ClCompile Include="Main5.5.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Main5.4.cpp" />

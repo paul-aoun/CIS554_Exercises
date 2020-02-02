@@ -33,7 +33,7 @@ int recursiveAdd(int number)
 		return number + recursiveAdd(number - 1);
 	}
 }
-
+/*
 int main()
 {
 	int inputInteger{ 0 };
@@ -52,4 +52,4 @@ int main()
 		std::cout << "Result: " << recursiveAdd(inputInteger) << "\n";
 	}
 	
-}
+}*/
