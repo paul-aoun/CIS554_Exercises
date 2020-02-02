@@ -8,7 +8,7 @@
 // 2/1/2020											//
 //												    //
 // This is the main file demoing					//
-// recursive function. the fundtion will add number	//
+// recursive function. the function will add number	//
 // from 1 to N, similar to a factorial function 	//
 // but adding instead of multiplying.				//
 //													//
@@ -19,7 +19,7 @@
 #include "Utilities.h"
 
 // Function that will recusively add the numbers from
-// 1 to input number.
+// 1 to passed number.
 int recursiveAdd(int number)
 {
 	// Base condition for recursive function
