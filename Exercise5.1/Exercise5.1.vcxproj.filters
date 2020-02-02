@@ -30,10 +30,10 @@
     <ClCompile Include="Main5.4.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Exercise5.5.cpp">
+    <ClCompile Include="Utilities.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Utilities.cpp">
+    <ClCompile Include="Main5.5.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
