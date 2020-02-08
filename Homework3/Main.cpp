@@ -24,7 +24,8 @@ int main()
 {
 	bool continueLooping{ true }, continueInnerLooping{ true };
 
-	std::array <int, 5> numbers; 
+	const size_t arraySize = 5;
+	std::array <int, arraySize> numbers = { 0 };
 
 	BarChart barChart;
 	std::string chart{ "" };
