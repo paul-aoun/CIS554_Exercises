@@ -5,6 +5,7 @@
 #include <array>
 using namespace std;
 
+/*
 int main()
 {
 	const size_t arraySize{ 10 };
@@ -32,3 +33,4 @@ int main()
 	cout << "\nAverage of array values is: " << average << "\n"; // print average
 
 } // end main
+*/
