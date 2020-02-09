@@ -42,6 +42,7 @@ void printArray(const std::array < std::array <int, columns>, rows>& anArray, do
 	average /= columns * rows;
 }
 
+/*
 int main()
 {
 	std::array <std::array< int, columns >, rows> randomizedArray = { 0 }; // n is an array of 10 int values
@@ -58,3 +59,4 @@ int main()
 
 	
 } // end main
+*/
