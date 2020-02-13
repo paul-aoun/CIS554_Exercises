@@ -3,7 +3,6 @@
 // CIS 554-M401 Object Oriented Programming in C++  //
 //													//
 // Syracuse University								//				
-// HW #3 -  Exercise 5.16 p206						//
 //													//
 // 2/4/2020											//
 //													//
