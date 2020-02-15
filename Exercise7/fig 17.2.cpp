@@ -31,6 +31,7 @@ double multiplication(int number1, int number2) {
 	return static_cast <double>(number1)*number2;
 }
 
+/*
 int main() {
 	int number1; // user-specified numerator
 	int number2; // user-specified denominator
@@ -62,3 +63,4 @@ int main() {
 
 	cout << endl;
 }
+*/

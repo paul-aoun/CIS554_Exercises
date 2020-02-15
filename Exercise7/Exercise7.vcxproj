@@ -149,9 +149,12 @@
   <ItemGroup>
     <ClCompile Include="DivideByZeroException.h" />
     <ClCompile Include="fig 17.2.cpp" />
+    <ClCompile Include="Fig09_03.cpp" />
+    <ClCompile Include="Time.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="NumberTooLargeException.h" />
+    <ClInclude Include="Time.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
