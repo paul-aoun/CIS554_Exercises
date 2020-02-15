@@ -28,7 +28,7 @@ void checkRate(ComputerAssistedInstruction& CAI, bool& continueLoopingInner)
 	//Check if number of trials is greater than 10 and then calculates rate
 	if (CAI.getNumberOfTrials() >= 10)
 	{
-		if (static_cast <int>(CAI.getRateOfSuccess()) > 75)
+		if (static_cast <int>(CAI.getRateOfSuccess()) >= 75)
 		{
 			std::cout << "Congratulations, you are ready to go to the next level! \n\n";
 			continueLoopingInner = false;
@@ -99,7 +99,7 @@ int main()
 	{
 		std::cout << "Please choose the math operation to perform: \n";
 		std::cout << "Add: 1, Subtract: 2, Multiply: 3, Divide (dividend): 4, or Random: 5. \n";
-		choice = Utilities::getIntInputValidate("Enter your choice (1 to 4, -10 to exit.): ", "Invalid Choice. Please try again.");
+		choice = Utilities::getIntInputValidate("Enter your choice (1 to 5, -10 to exit.): ", "Invalid Choice. Please try again.");
 		
 		//Randomly set choice to a value between 1 and 4, if random is chosen
 		if (choice == 5) 
