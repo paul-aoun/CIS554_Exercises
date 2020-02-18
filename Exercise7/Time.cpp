@@ -3,10 +3,19 @@
 #include <iomanip>
 #include <stdexcept>
 #include <sstream>
+#include <iostream>
 #include "Time.h"
 
 using namespace std;
 
+
+Time::Time() {
+	std::cout << "Time constructor called!\n";
+}
+
+Time::~Time() {
+	std::cout << "Time destructor called!\n";
+}
 // set new Time value using universal time
 void Time::setTime(int h, int m, int s) {
 	// validate hour, minute and second

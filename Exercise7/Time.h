@@ -10,6 +10,8 @@
 // Time class definition
 class Time {
 public: 
+	explicit Time();
+	~Time();
 	void setTime(int, int, int); // set hour, minute and second
 	std::string toUniversalString() const; // 24-hour time format string
 	std::string toStandardString() const; // 12-hour time format string
