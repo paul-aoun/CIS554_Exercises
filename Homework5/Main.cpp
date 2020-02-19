@@ -18,6 +18,7 @@ int main()
 	//Loop until the user enters an integer for difficulty level or exists
 	while (continueLooping)
 	{
+
 		std::cout << "Welcome to Presidents' Day Trivia! \n\n";
 		std::cout << "Option 1: Refresh your memory about the United States Presidents to date. \n";
 		std::cout << "Option 2: Questions about the Presidents focusing on their presidency's number. \n";
@@ -38,12 +39,12 @@ int main()
 			if ((((answer == "Y") || (answer == "y")) && questionIsTrue) ||
 				(((answer == "N") || (answer == "n")) && !questionIsTrue))
 			{
-				std::cout << "Your answer is correct! You certainly know your history!";
+				std::cout << "Your answer is correct! You certainly know your history!\n\n";
 			}
 			else if ((((answer == "Y") || (answer == "y")) && !questionIsTrue) ||
 				(((answer == "N") || (answer == "n")) && questionIsTrue))			
 			{
-				std::cout << "You answer is wrong! " << correctAnswer <<"\n";
+				std::cout << "You answer is wrong! " << correctAnswer <<"\n\n";
 			}
 			continueLooping = true;
 			break;
