@@ -9,8 +9,6 @@
 void PresidentsDay::initializePresidents() {
 	int presidentCounter{ 0 };
 	std::vector<int> randomNumbers;
-
-	presidentCounter = 0;
 	
 	Utilities::uniqueRandomNumbersGenerator(0, presidentsOrderedNames.size()-1, presidentsOrderedNames.size(), randomNumbers);
 
@@ -49,6 +47,41 @@ const std::string PresidentsDay::printPresidents() const
 		output << std::setw(25) << p.getName() << std::setw(5) << p.getOrder() + 1  << "\n";
 	}
 	return output.str();
+}
+void PresidentsDay::askPresidentQuestion(bool& questionIsTrue, std::string& questionStr, std::string& correctAnswer) const
+{
+	int num{ 0 };
+	Utilities::randomNumbersGenerator(0, presidents.size(), num);
+	President p = presidents.at(num);
+	std::ostringstream question, answer;
+
+	Utilities::randomNumbersGenerator(0, 3, num);
+	switch (num) {
+	case 0:
+		question << "President " << p.getName() << " was number " << p.getRandomOrder() << "? (Y/N): ";
+		break;
+	case 1:
+		question << "President " << p.getName() << " was number " << p.getOrder() +1 << "? (Y/N): ";
+		break;
+	case 2:
+		question << "President number " << p.getRandomOrder() << " was " << p.getName() << " ? (Y/N): ";
+		break;
+	case 3:
+		question << "President number " << p.getOrder() +1 << " was " << p.getName() << " ? (Y/N): ";
+		break;
+	}
+	
+	questionStr = question.str();
+	
+	answer << "President " << p.getName() << " was number " << p.getOrder() +1 << "!";
+	correctAnswer = answer.str();
+
+	if (p.getOrder() +1 == p.getRandomOrder()) {
+		questionIsTrue = true;
+	}
+	else {
+		questionIsTrue = false;
+	}
 }
 /*
 void PresidentsDay::guessPresidentsOrder(std::vector<int>& presidentsOrderGuesses, std::vector<std::string>& remainingPresidentstoOrder) const

@@ -24,6 +24,7 @@ public:
 	PresidentsDay(); //constructor
 	const std::vector <President>& getPresidents() const;
 	const std::string printPresidents() const;
+	void askPresidentQuestion(bool&, std::string&, std::string&) const;
 };
 
 

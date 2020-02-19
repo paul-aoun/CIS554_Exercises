@@ -124,11 +124,6 @@ void Utilities::uniqueRandomNumbersGenerator(int lower, int upper, int numberOfR
 		sequentialNumbers.push_back(i);
 	}
 
-	/*
-	randomNumbersGenerator(lower, upper, num1, num2);
-	randomNumbers.push_back(num1);
-	*/
-
 	while (sequentialNumbers.size() > 0) {
 		randomNumbersGenerator(lower, sequentialNumbers.size() -1, num1, num2);
 		randomNumbers.push_back(sequentialNumbers.at(num1));
