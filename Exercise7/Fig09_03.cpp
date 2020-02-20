@@ -13,8 +13,10 @@ void displayTime(const string& message, const Time& time) {
 }
 
 int main() {
-	Time t; // instantiate object t of class Time
+	Time t, t1; // instantiate object t of class Time
 	Time * ptrT = &t;
+
+	t1 = t;
 
 	displayTime("Initial time:", *ptrT); // display t's initial value
 	t.setTime(13, 27, 6); // change time
