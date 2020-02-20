@@ -30,7 +30,7 @@ void PresidentsDay::initializePresidents() {
 	for (std::string presidentName : presidentsOrderedNames) {
 		President p;
 		p.setName(presidentName);
-		p.setOrder(presidentCounter);
+		p.setOrder(presidentCounter +1);
 		p.setRandomOrder(randomNumbers.at(presidentCounter++));
 		presidents.push_back(p);
 	}

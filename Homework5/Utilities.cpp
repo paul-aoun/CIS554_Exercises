@@ -116,7 +116,7 @@ void Utilities::randomNumbersGenerator(int lower, int upper, int& num1)
 void Utilities::uniqueRandomNumbersGenerator(int lower, int upper, int numberOfRandomNumbers, std::vector <int>& randomNumbers)
 {
 	int num1{ 0 };
-	int num2{ 0 };
+
 	std::vector<int>::iterator it;
 	
 	std::vector <int> sequentialNumbers;
@@ -128,7 +128,7 @@ void Utilities::uniqueRandomNumbersGenerator(int lower, int upper, int numberOfR
 
 	// Prepare random numbers vector.
 	while (sequentialNumbers.size() > 0) {
-		randomNumbersGenerator(lower, sequentialNumbers.size() -1, num1, num2);
+		randomNumbersGenerator(lower, sequentialNumbers.size() -1, num1);
 		randomNumbers.push_back(sequentialNumbers.at(num1));
 		sequentialNumbers.erase(sequentialNumbers.begin() + num1);
 	}
