@@ -102,6 +102,7 @@ void Utilities::randomNumbersGenerator(int lower, int upper, int& num1, int& num
 	std::uniform_int_distribution<unsigned int> randomInt{ static_cast<unsigned int>(lower), static_cast<unsigned int>(upper) };
 	num1 = randomInt(engine);
 	num2 = randomInt(engine);
+
 }
 
 //Overload randomNumberGenerator to return 1 random integer.
@@ -111,7 +112,7 @@ void Utilities::randomNumbersGenerator(int lower, int upper, int& num1)
 	randomNumbersGenerator(lower, upper, num1, num2);
 }
 
-//Return n random numbers between lower and upper.
+//Return n random numbers between lower and upper, stored in a vector.
 void Utilities::uniqueRandomNumbersGenerator(int lower, int upper, int numberOfRandomNumbers, std::vector <int>& randomNumbers)
 {
 	int num1{ 0 };
@@ -119,11 +120,13 @@ void Utilities::uniqueRandomNumbersGenerator(int lower, int upper, int numberOfR
 	std::vector<int>::iterator it;
 	
 	std::vector <int> sequentialNumbers;
-
+	
+	// Prepare temp vector used to prepare the random numbers.
 	for (int i = 0; i < numberOfRandomNumbers; i++) {
 		sequentialNumbers.push_back(i);
 	}
 
+	// Prepare random numbers vector.
 	while (sequentialNumbers.size() > 0) {
 		randomNumbersGenerator(lower, sequentialNumbers.size() -1, num1, num2);
 		randomNumbers.push_back(sequentialNumbers.at(num1));
