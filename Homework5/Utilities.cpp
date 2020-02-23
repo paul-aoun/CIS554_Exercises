@@ -19,7 +19,7 @@
 
 //Function that will input a string from the user and make sure it's an integer.
 //If it's not an integer, it will give an error message and offer the user to enter the value again.
-int Utilities::getIntInputValidate(std::string prompt, std::string inputName)
+int Utilities::getIntInputValidate(std::string *prompt, std::string *inputName)
 {
 	//Variables used by the function
 	bool invalidNumber = true; //Boolean variable used by the loop to check when to stop.
@@ -32,7 +32,7 @@ int Utilities::getIntInputValidate(std::string prompt, std::string inputName)
 	//and offer the user to try again or stop.
 	do
 	{
-		std::cout << prompt;
+		std::cout << *prompt;
 		std::cin >> inputIntString;
 		try
 		{
@@ -41,7 +41,7 @@ int Utilities::getIntInputValidate(std::string prompt, std::string inputName)
 		}
 		catch (std::invalid_argument ia)
 		{
-			std::cout << "Invalid " << inputName << " entered! \n";
+			std::cout << "Invalid " << *inputName << " entered! \n";
 			std::cout << "Error: " << ia.what() << ". \n";
 			std::cout << "Try again? Y/N: ";
 			std::cin >> yesNo;

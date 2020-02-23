@@ -52,8 +52,8 @@ int main()
 	// default operator=
 	cout << "Show default assignment operator" << endl;
 	cout << "ob3 = ob1 += ob2 = ";
-	ob3 = ob1 += ob2;
-	ob3.show();
+	ob1 += ob2;
+	ob1.show();
 	cout << endl;
 
 	// demonstrate that original loc objects have not been modified

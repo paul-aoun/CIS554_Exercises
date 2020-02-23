@@ -28,13 +28,9 @@ loc loc::operator+(loc op2)
 	return temp;
 }
 
-// Overload + for loc.
-loc loc::operator+=(loc op2)
+loc operator+=(loc& op1, loc op2)
 {
-	loc temp;
-
-	temp.longitude = op2.longitude + longitude;
-	temp.latitude = op2.latitude + latitude;
-
-	return temp;
+	op1.longitude += op2.longitude;
+	op1.latitude += op2.latitude;
+	return op1;
 }

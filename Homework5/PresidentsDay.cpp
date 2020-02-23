@@ -63,7 +63,7 @@ const std::string PresidentsDay::printPresidents() const
 	}
 	output << "\n";
 
-	// Prepare the presidents rows
+	// Prepare the presidents rows using range based for loop.
 	for (President p : presidents) {
 		output << std::setw(25) << p.getName() << std::setw(5) << p.getOrder() + 1  << "\n";
 	}

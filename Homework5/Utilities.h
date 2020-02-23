@@ -15,7 +15,9 @@ class Utilities
 {
 public:
 
-	static int getIntInputValidate(std::string, std::string);
+	//Get user input and validate it's a valid integer.
+	//Use pointers to get the strings for the prompts.
+	static int getIntInputValidate(std::string*, std::string*);
 	static double getDoubleInputValidate(std::string, std::string);
 
 	static void randomNumbersGenerator(int lower, int upper, int& num1, int& num2);
