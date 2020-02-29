@@ -16,7 +16,6 @@ using std::ostream;
 class CommunityMember
 {
 public:
-
 	// default constructor
 	CommunityMember();
 
@@ -31,12 +30,14 @@ public:
 	string GetLastName() { return lastName; }
 	int GetMemberID() { return memberID; }
 
+protected:
+	int memberID;
 
 private:
 	string communityName;
 	string firstName;
 	string lastName;
-	int memberID;
+	
 };
 
 #endif

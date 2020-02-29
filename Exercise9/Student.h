@@ -20,8 +20,11 @@ public:
 	// destructor
 	~Student();
 
-	string GetStudentDeparment() { return studentDepartment; }
-	double GetStudentGPA() { return studentGPA; }
+	string GetStudentDeparment();
+	double GetStudentGPA();
+
+	//Override CommunityMember method
+	int GetMemberID();
 
 private:
 	string studentDepartment{ "" };

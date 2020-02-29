@@ -10,6 +10,19 @@ Student::Student(string cName, string fName, string lName, int memID, string stu
 {
 }
 
+string Student::GetStudentDeparment() {
+	return studentDepartment; 
+}
+
+double Student::GetStudentGPA() {
+	return studentGPA; 
+}
+
+//Override CommunityMember method
+int Student::GetMemberID() { 
+	return memberID*100; 
+}
+
 Student::~Student()
 {
 }
