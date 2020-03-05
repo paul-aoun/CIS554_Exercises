@@ -13,7 +13,7 @@ using std::string;
 #include <ostream>
 using std::ostream;
 
-class CommunityMember
+class CommunityMember 
 {
 public:
 
@@ -30,7 +30,7 @@ public:
 	string GetFirstName() { return firstName; }
 	string GetLastName() { return lastName; }
 	int GetMemberID() { return memberID; }
-	virtual string GetCommunityMemberType();// { return "Base Class GetCommunityMemberType method called!!\n"; }
+	virtual string GetCommunityMemberType() = 0;// { return "Base Class GetCommunityMemberType method called!!\n"; }
 
 
 
