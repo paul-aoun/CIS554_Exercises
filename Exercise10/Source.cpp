@@ -7,6 +7,7 @@
 
 #include "CommunityMember.h"
 #include "Employee.h"
+#include "Student.h"
 #include <iostream>
 using std::cout;
 using std::endl;
@@ -22,12 +23,12 @@ int main()
 	vector<CommunityMember*> communityMemberVector(2);
 
 	// initialize some CommunityMember objects
-	CommunityMember taylorSwift("Syracuse University", "Taylor", "Swift", 1234);
 	Employee carrieUnderwood("Syracuse University", "Carrie", "Underwood", 5678, "Country Singer", 1000000);
+	Student willieSwift("Syracuse University", "Willie", "Swift", 1234);
 
 	// re-assign default objects in our vector to our newly created members
-	communityMemberVector[0] = &taylorSwift;      // CommunityMember type
-	communityMemberVector[1] = &carrieUnderwood;  // Employee type
+	communityMemberVector[0] = &carrieUnderwood;  // Employee type
+	communityMemberVector[1] = &willieSwift;      // Student type
 
 	// print out each member's type
 	for (auto item : communityMemberVector)

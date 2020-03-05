@@ -25,11 +25,6 @@ CommunityMember::CommunityMember(string cName, string fName, string lName, int m
 	// no body needed. everthing was done in the initialization list
 }
 
-string CommunityMember::GetCommunityMemberType()
-{ 
-	return "Base Class GetCommunityMemberType method called!!\n"; 
-}
-
 CommunityMember::~CommunityMember()
 {
 	// nothing to do at this time
