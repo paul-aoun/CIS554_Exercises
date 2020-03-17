@@ -14,13 +14,14 @@
 #include <sstream>
 #include <iomanip>
 #include <vector>
+#include <array>
 #include <tuple>
 #include <iostream>
 #include "Utilities.h"
 #include "PresidentsDay.h"
 
 // Function to initialize the presidents' vector
-void PresidentsDay::initializePresidents() {
+void PresidentsDay::initializeComponents() {
 	int presidentCounter{ 0 };
 	std::vector<int> randomNumbers;
 	
@@ -28,27 +29,22 @@ void PresidentsDay::initializePresidents() {
 
 	// Loop to instantiate the presidents objects and store them in the presidents vector.
 	for (std::string presidentName : presidentsOrderedNames) {
-		President p;
-		p.setName(presidentName);
-		p.setOrder(presidentCounter +1);
-		p.setRandomOrder(randomNumbers.at(presidentCounter++));
-		presidents.push_back(p);
+		President* p = new President();
+		(*p).setName(presidentName);
+		(*p).setOrder(presidentCounter +1);
+		(*p).setRandomOrder(randomNumbers.at(presidentCounter++));
+		gameComponents.push_back(p);
 	}
 }
 
 // Constructor to call the initialization function.
 PresidentsDay::PresidentsDay() {
-	initializePresidents();
+	initializeComponents();
 }
 
-// Returns the vector of presidents
-const std::vector<President>& PresidentsDay::getPresidents() const
-{
-	return presidents;
-}
 
 // Prepare a string in a table format with all the presidents
-const std::string PresidentsDay::printPresidents() const
+const std::string PresidentsDay::printComponents() const
 {
 	std::ostringstream output;
 
@@ -62,10 +58,11 @@ const std::string PresidentsDay::printPresidents() const
 		output << "_";
 	}
 	output << "\n";
-
+	
 	// Prepare the presidents rows using range based for loop.
-	for (President p : presidents) {
-		output << std::setw(25) << p.getName() << std::setw(5) << p.getOrder() + 1  << "\n";
+	for (GameComponent* c : gameComponents) {
+		President* p = dynamic_cast<President*>(c);
+		output << std::setw(25) << (*p).getName() << std::setw(5) << (*p).getOrder() + 1  << "\n";
 	}
 	return output.str();
 }
@@ -74,16 +71,19 @@ const std::string PresidentsDay::printPresidents() const
 void PresidentsDay::askPresidentQuestion(bool& questionIsTrue, std::string& questionStr, std::string& correctAnswer) const
 {
 	int num{ 0 };
-	Utilities::randomNumbersGenerator(0, presidents.size() -1, num);
-	President p = presidents.at(num);
+	Utilities::randomNumbersGenerator(0, gameComponents.size() -1, num);
+	
+	GameComponent* c = gameComponents.at(num);
+	President* p = dynamic_cast<President*>(c);
+
 	std::ostringstream question, answer;
 
 	// Randomly chose a question style, some correct and some incorrect answers
 	Utilities::randomNumbersGenerator(0, 3, num);
 	switch (num) {
 	case 0:
-		question << "President " << p.getName() << " was number " << p.getRandomOrder() << "? (Y/N): ";
-		if (p.getOrder() + 1 == p.getRandomOrder()) {
+		question << "President " << (*p).getName() << " was number " << (*p).getRandomOrder() << "? (Y/N): ";
+		if ((*p).getOrder() + 1 == (*p).getRandomOrder()) {
 			questionIsTrue = true;
 		}
 		else {
@@ -91,12 +91,12 @@ void PresidentsDay::askPresidentQuestion(bool& questionIsTrue, std::string& ques
 		}
 		break;
 	case 1:
-		question << "President " << p.getName() << " was number " << p.getOrder() +1 << "? (Y/N): ";
+		question << "President " << (*p).getName() << " was number " << (*p).getOrder() +1 << "? (Y/N): ";
 		questionIsTrue = true;
 		break;
 	case 2:
-		question << "President number " << p.getRandomOrder() << " was " << p.getName() << " ? (Y/N): ";
-		if (p.getOrder() + 1 == p.getRandomOrder()) {
+		question << "President number " << (*p).getRandomOrder() << " was " << (*p).getName() << " ? (Y/N): ";
+		if ((*p).getOrder() + 1 == (*p).getRandomOrder()) {
 			questionIsTrue = true;
 		}
 		else {
@@ -104,14 +104,14 @@ void PresidentsDay::askPresidentQuestion(bool& questionIsTrue, std::string& ques
 		}
 		break;
 	case 3:
-		question << "President number " << p.getOrder() +1 << " was " << p.getName() << " ? (Y/N): ";
+		question << "President number " << (*p).getOrder() +1 << " was " << (*p).getName() << " ? (Y/N): ";
 		questionIsTrue = true;
 		break;
 	}
 	
 	questionStr = question.str();
 	
-	answer << "President " << p.getName() << " was number " << p.getOrder() +1 << "!";
+	answer << "President " << (*p).getName() << " was number " << (*p).getOrder() +1 << "!";
 	correctAnswer = answer.str();
 
 
@@ -153,5 +153,86 @@ void PresidentsDay::getPresidentQuote(bool& quoteIsTrue, std::string& quoteStr, 
 		quoteStr = fakeQuote.str();
 		correctQuote = quote.str();
 		break;
+	}
+}
+
+void PresidentsDay::playGame()
+{
+	//PresidentsDay pd;
+
+	//Loop until the user enters an integer for difficulty level or exists
+	while (continueLooping)
+	{
+		// Prints the welcome message and options for the player.
+		std::cout << welcomePrompts[0];
+		std::cout << welcomePrompts[1];
+		std::cout << welcomePrompts[2];
+		std::cout << welcomePrompts[3];
+
+		// Depending on the user's choice, it will play one of the 3 available options:
+		// 1- Print the list of presidents, 2- Ask questions a president's number, or 3- Ask a question about a president's quote.
+		std::string promptStrPtr = "\nPlease enter your choice 1 to 3 (-1 to exit): ";
+		std::string promptWrongStrPtr = "Invalid Choice. Please try again.";
+
+		choice = Utilities::getIntInputValidate(&promptStrPtr, &promptWrongStrPtr);
+		switch (choice) {
+		case 1: // Print the list of presidents
+			std::system("CLS");
+			std::cout << "\n" << printComponents() << "\n";
+			continueLooping = true;
+			break;
+		case 2: // Play about the president's number, correct or incorrect
+			std::system("CLS");
+			askPresidentQuestion(questionIsTrue, questionStr, correctAnswer);
+			std::cout << questionStr;
+			std::cin >> answer;
+			if ((((answer == "Y") || (answer == "y")) && questionIsTrue) ||
+				(((answer == "N") || (answer == "n")) && !questionIsTrue))
+			{
+				correctAnswers++;
+				score = (correctAnswers * 100.0 / (static_cast <double>(correctAnswers) + static_cast <double>(wrongAnswers)));
+				std::cout << "Your answer is correct! You certainly know your history!\n";
+				std::cout << "Your score so far is: " << std::fixed << std::setprecision(2) << score << "%\n\n";
+			}
+			else if ((((answer == "Y") || (answer == "y")) && !questionIsTrue) ||
+				(((answer == "N") || (answer == "n")) && questionIsTrue))
+			{
+				wrongAnswers++;
+				score = (correctAnswers * 100.0 / (static_cast <double>(correctAnswers) + static_cast <double>(wrongAnswers)));
+				std::cout << "Your answer is wrong! " << correctAnswer << "\n";
+				std::cout << "Your score so far is: " << std::fixed << std::setprecision(2) << score << "%\n\n";
+			}
+			continueLooping = true;
+			break;
+		case 3: // Play about a president quote, real or fake
+			std::system("CLS");
+			getPresidentQuote(questionIsTrue, questionStr, correctAnswer);
+			std::cout << questionStr << " (Y/N): ";
+			std::cin >> answer;
+			if ((((answer == "Y") || (answer == "y")) && questionIsTrue) ||
+				(((answer == "N") || (answer == "n")) && !questionIsTrue))
+			{
+				correctAnswers++;
+				score = (correctAnswers * 100.0 / (static_cast <double>(correctAnswers) + static_cast <double>(wrongAnswers)));
+				std::cout << "Your answer is correct! You certainly know your history!\n";
+				std::cout << "Your score so far is: " << std::fixed << std::setprecision(2) << score << "%\n\n";
+			}
+			else if ((((answer == "Y") || (answer == "y")) && !questionIsTrue) ||
+				(((answer == "N") || (answer == "n")) && questionIsTrue))
+			{
+				wrongAnswers++;
+				score = (correctAnswers * 100.0 / (static_cast <double>(correctAnswers) + static_cast <double>(wrongAnswers)));
+				std::cout << "Your answer is wrong! " << correctAnswer << "\n";
+				std::cout << "Your score so far is: " << std::fixed << std::setprecision(2) << score << "%\n\n";
+			}
+			continueLooping = true;
+			break;
+		case -1:
+			continueLooping = false;
+			break;
+		default:
+			continueLooping = true;
+			break;
+		}
 	}
 }

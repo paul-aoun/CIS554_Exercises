@@ -13,10 +13,6 @@
 #include <string>
 #include "President.h"
 
-// Set the President name.
-void President::setName(std::string aName) {
-	name = aName;
-}
 
 // Set the President order.
 void President::setOrder(int anOrder) {
@@ -31,11 +27,6 @@ void President::setRandomOrder(int aRandomOrder) {
 // Set the President guessed order by the user.
 void President::setGuessedOrder(int aGuessedOrder) {
 	guessedOrder = aGuessedOrder;
-}
-
-// Get the President name.
-const std::string President::getName() const {
-	return name;
 }
 
 // Get the President order.

@@ -14,12 +14,13 @@
 #include <string>
 #include <vector>
 #include <tuple>
+#include "Game.h"
 #include "President.h"
 
 #ifndef PRESIDENTSDAY_H
 #define PRESIDENTSDAY_H
 
-class PresidentsDay {
+class PresidentsDay : public Game {
 
 private:
 	//Ordered vector of containing the names of the presidents.
@@ -44,15 +45,25 @@ private:
 		std::make_tuple("John F. Kennedy", "Change is the exception. And those who look only to the past or present are certain to miss the future."),
 		std::make_tuple("Woodrow Wilson", "One fast judgment is worth a thousand hasty counsels. The thing to do is to apply heat to urgent matters")};
 
-	std::vector <President> presidents;
-	
+
+	bool continueLooping{ true };
+	int choice{ 0 }; //user choice
+	unsigned int correctAnswers{ 0 }, wrongAnswers{ 0 };
+	double score{ 0.0 };
+	std::string answer{ "" }, questionStr{ "" }, correctAnswer{ "" };
+	bool questionIsTrue{ false };
+	std::array <std::string, 4> welcomePrompts{ "Welcome to Presidents' Day Trivia! \n\n", "Option 1: Refresh your memory about the United States Presidents to date. \n",
+		"Option 2: Questions about the Presidents focusing on their presidency's number. \n", "Option 3: Trivia about the Presidents. \n" };
+
 	// Function to initialize the presidents' vector
-	void initializePresidents();
+	void initializeComponents();
 	
 public:
 	PresidentsDay(); //constructor
-	const std::vector <President>& getPresidents() const; // Return the vector of presidents
-	const std::string printPresidents() const; // Prepare a string in a table format with all the presidents
+	
+	virtual const std::string printComponents() const; // Prepare a string in a table format with all the components of a game
+	virtual void playGame();
+
 	void askPresidentQuestion(bool&, std::string&, std::string&) const; // Prepare a questions with a correct and incorrect answers from the list and return by reference
 	void getPresidentQuote(bool&, std::string&, std::string&) const; // Prepare a real quote and a fake quote and return by reference.
 };

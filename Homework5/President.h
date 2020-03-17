@@ -11,24 +11,22 @@
 // the president objects.							//
 //////////////////////////////////////////////////////
 #include <string>
+#include "GameComponent.h"
 
 // President class holding all the President's values needed for 
 // the trivia games.
-class President {
+class President : public GameComponent {
 
 private:
-	std::string name{ "" };
 	int order{ 0 }, randomOrder{ 0 }, guessedOrder{ 0 };
 
 public:
 	// Setter functions for the Presidents values.
-	void setName(std::string);
 	void setOrder(int);
 	void setRandomOrder(int);
 	void setGuessedOrder(int);
 
 	// Getter functions for the Presidents values.
-	const std::string getName() const;
 	const int getOrder() const;
 	const int getRandomOrder() const;
 	const int getGuessedOrder() const;
