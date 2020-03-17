@@ -133,24 +133,42 @@ const std::string TicTacToe::printComponents() const {
 void TicTacToe::playGame()
 {
 	int choice{ 0 };
+	bool continueLooping{ true };
+	std::string promptStrPtr{ "" };
 	std::string promptWrongStrPtr = "Invalid Choice. Please try again.";
-
+	std::cout << printComponents() << "\n";
 	//Loop until one of the players wins or they reach the maximun number of guess. 
 	while ((playerWins() == 0) && (numberOfGuesses <= 9)) {
-		std::string promptStrPtr = "\nPlayer 1 enter your box choice (-1 to exit): ";
-		choice = Utilities::getIntInputValidate(&promptStrPtr, &promptWrongStrPtr);
-		if ((choice >= 1) && (choice <= 9) && (getBoxValue(choice) == "")) {
-			setBoxValue(choice, "X");
-			numberOfGuesses++;
+		
+		continueLooping = true;
+		while ((continueLooping) && (playerWins() == 0)) {
+			promptStrPtr = "\nPlayer 1 enter your box choice (-1 to exit): ";
+			choice = Utilities::getIntInputValidate(&promptStrPtr, &promptWrongStrPtr);
+			if ((choice >= 1) && (choice <= 9) && (getBoxValue(choice) == " ")) {
+				setBoxValue(choice, "X");
+				numberOfGuesses++;
+				std::cout << printComponents() << "\n";
+				continueLooping = false;
+			}
+			else {
+				std::cout << promptWrongStrPtr << "\n";
+			}
 		}
 
-		promptStrPtr = "\nPlayer 2 enter your box choice (-1 to exit): ";
-		choice = Utilities::getIntInputValidate(&promptStrPtr, &promptWrongStrPtr);
-		if ((choice >= 1) && (choice <= 9) && (getBoxValue(choice) == "")) {
-			setBoxValue(choice, "O");
-			numberOfGuesses++;
+		continueLooping = true;
+		while ((continueLooping) && (playerWins() == 0)) {
+			promptStrPtr = "\nPlayer 2 enter your box choice (-1 to exit): ";
+			choice = Utilities::getIntInputValidate(&promptStrPtr, &promptWrongStrPtr);
+			if ((choice >= 1) && (choice <= 9) && (getBoxValue(choice) == " ")) {
+				setBoxValue(choice, "O");
+				numberOfGuesses++;
+				std::cout << printComponents() << "\n";
+				continueLooping = false;
+			}
+			else {
+				std::cout << promptWrongStrPtr << "\n";
+			}
 		}
-		std::cout << printComponents() << "\n";
 	}
 
 	choice = playerWins();
