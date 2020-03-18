@@ -31,26 +31,31 @@ int main()
 	
 	int choice{ 0 };
 	bool continueLooping{ true };
+	//std::string dummy{ "" }; //dummy variable to pause the screen for the players to read the game result
 	
-	std::string promptString{ "Please choose your game:\n (1): Presidents' Trivia\n (2): Tic-Tac-Toe\n (3):Exit \n Your choice: " };
+	std::string promptString{ "Please choose your game:\n (1): Presidents' Trivia\n (2): Tic-Tac-Toe\n (3): Exit \nYour choice: " };
 	std::string invalidString{ "Invalid Choice. Please try again." };
 
-	std::cout << "Welcome to Game CIS 554-M401 Games! \n\n";
-
+	
 	//Loop until the user enters an integer for difficulty level or exists
 	while (choice != 3)
 	{
+		//std::system("CLS");
+		std::cout << "Welcome to Game CIS 554-M401 Games! \n\n";
 		PresidentsDay pd;
 		TicTacToe ttt;
 
 		std::vector <Game*> games{ &pd, &ttt };
 
 		choice = Utilities::getIntInputValidate(&promptString, &invalidString);
+		//std::system("CLS");
 
 		if ((choice == 1) || (choice == 2))
 		{
 			//Polymorphic playing
 			(*games.at(choice -1)).playGame();
+			std::cout << "\n\n";
+			//std::cin >> dummy;
 		}
 		else if (choice != 3) {
 			std::cout << invalidString << "\n";

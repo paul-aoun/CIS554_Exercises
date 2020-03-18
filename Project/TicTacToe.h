@@ -24,7 +24,7 @@ class TicTacToe : public Game {
 
 private:
 	std::array <std::string, 10> boxesValues{ " ",  " ",  " ",  " ",  " ",  " ",  " ",  " ",  " ",  " " }; //hold the players choices
-	int numberOfGuesses{ 0 };
+	int numberOfGuesses{ 1 };
 
 	int playerWins() const;
 

@@ -85,8 +85,6 @@ const std::string TicTacToe::printComponents() const {
 	std::vector <std::string> rows;
 	std::string row{ "" }, lineRow{ "" };
 
-	output << std::setw(18) << "Tic-Tac-Toe Game" << std::setw(29) << " Game 1 \n";
-
 	for (int i = 0; i <= width + 8; i++)
 		lineRow += "=";
 
@@ -114,19 +112,6 @@ const std::string TicTacToe::printComponents() const {
 
 	}
 
-
-
-	/*CONSOLE_FONT_INFOEX cfi;
-	cfi.cbSize = sizeof(cfi);
-	cfi.nFont = 0;
-	cfi.dwFontSize.X = 0;                   // Width of each character in the font
-	cfi.dwFontSize.Y = 24;                  // Height
-	cfi.FontFamily = FF_DONTCARE;
-	cfi.FontWeight = FW_NORMAL;
-	//std::wcscpy(cfi.FaceName, L"Consolas"); // Choose your font
-	SetCurrentConsoleFontEx(GetStdHandle(STD_OUTPUT_HANDLE), FALSE, &cfi);
-	*/
-	std::cout << "Font: Consolas, Size: 24\n";
 	return output.str();
 }
 
@@ -136,12 +121,14 @@ void TicTacToe::playGame()
 	bool continueLooping{ true };
 	std::string promptStrPtr{ "" };
 	std::string promptWrongStrPtr = "Invalid Choice. Please try again.";
+	
+	std::cout << std::setw(18) << "Welcome to Tic-Tac-Toe Game!" << "\n";
 	std::cout << printComponents() << "\n";
 	//Loop until one of the players wins or they reach the maximun number of guess. 
-	while ((playerWins() == 0) && (numberOfGuesses <= 9)) {
+	while ((playerWins() == 0) && (numberOfGuesses <= 9) && (choice != -1)) {
 		
 		continueLooping = true;
-		while ((continueLooping) && (playerWins() == 0)) {
+		while ((continueLooping) && (playerWins() == 0) && (numberOfGuesses <= 9) && (choice != -1)) {
 			promptStrPtr = "\nPlayer 1 enter your box choice (-1 to exit): ";
 			choice = Utilities::getIntInputValidate(&promptStrPtr, &promptWrongStrPtr);
 			if ((choice >= 1) && (choice <= 9) && (getBoxValue(choice) == " ")) {
@@ -156,7 +143,7 @@ void TicTacToe::playGame()
 		}
 
 		continueLooping = true;
-		while ((continueLooping) && (playerWins() == 0)) {
+		while ((continueLooping) && (playerWins() == 0) && (numberOfGuesses <= 9) && (choice != -1)) {
 			promptStrPtr = "\nPlayer 2 enter your box choice (-1 to exit): ";
 			choice = Utilities::getIntInputValidate(&promptStrPtr, &promptWrongStrPtr);
 			if ((choice >= 1) && (choice <= 9) && (getBoxValue(choice) == " ")) {
@@ -174,6 +161,9 @@ void TicTacToe::playGame()
 	choice = playerWins();
 	if (choice > 0) {
 		std::cout << "Congratulations player " << choice << "! You win!" << "\n";
+	}
+	else {
+		std::cout << "It's a tie! \n";
 	}
 }
 

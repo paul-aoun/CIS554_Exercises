@@ -160,6 +160,7 @@ void PresidentsDay::playGame()
 {
 	//PresidentsDay pd;
 
+	std::system("CLS");
 	//Loop until the user enters an integer for difficulty level or exists
 	while (continueLooping)
 	{
