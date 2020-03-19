@@ -20,10 +20,9 @@ public:
 	static int getIntInputValidate(std::string*, std::string*);
 	static double getDoubleInputValidate(std::string, std::string);
 
+	//Random numbers generators
 	static void randomNumbersGenerator(int lower, int upper, int& num1, int& num2);
-
 	static void randomNumbersGenerator(int lower, int upper, int& num1);
-
 	static void uniqueRandomNumbersGenerator(int lower, int upper, int numberOfRandomNumbers, std::vector<int>&);
 	
 };

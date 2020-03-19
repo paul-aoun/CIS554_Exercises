@@ -148,7 +148,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Game.cpp" />
-    <ClCompile Include="GameComponent.cpp" />
     <ClCompile Include="GameUtility.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="President.cpp" />
@@ -160,10 +159,10 @@
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameComponent.h" />
     <ClInclude Include="GameHelper.h" />
-    <ClInclude Include="Main.h" />
     <ClInclude Include="President.h" />
     <ClInclude Include="PresidentsDay.h" />
     <ClInclude Include="TicTacToe.h" />
+    <ClInclude Include="UnimplementedException.h" />
     <ClInclude Include="Utilities.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

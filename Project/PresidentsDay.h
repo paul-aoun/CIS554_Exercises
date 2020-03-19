@@ -4,7 +4,7 @@
 //													//
 // Syracuse University								//				
 //													//
-// 2/19/2020										//
+// 3/10/2020										//
 //													//
 // This is the header file for the PresidentDay 	//
 // class. It declares the functions needed to		//
@@ -61,10 +61,16 @@ private:
 public:
 	PresidentsDay(); //constructor
 	
-	virtual const std::string printComponents() const; // Prepare a string in a table format with all the components of a game
+	// Prepare a string in a table format with all the components of a game
+	virtual const std::string printComponents(); 
+	
+	// Function to play the game
 	virtual void playGame();
 
-	void askPresidentQuestion(bool&, std::string&, std::string&) const; // Prepare a questions with a correct and incorrect answers from the list and return by reference
-	void getPresidentQuote(bool&, std::string&, std::string&) const; // Prepare a real quote and a fake quote and return by reference.
+	// Prepare a questions with a correct and incorrect answers from the list and return by reference
+	void askPresidentQuestion(bool&, std::string&, std::string&) const;
+	
+	// Prepare a real quote and a fake quote and return by reference.
+	void getPresidentQuote(bool&, std::string&, std::string&) const; 
 };
 #endif PRESIDENTSDAY_H

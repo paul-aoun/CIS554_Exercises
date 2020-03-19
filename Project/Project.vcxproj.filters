@@ -18,9 +18,6 @@
     <ClCompile Include="Game.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GameComponent.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="GameUtility.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -62,7 +59,7 @@
     <ClInclude Include="Utilities.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Main.h">
+    <ClInclude Include="UnimplementedException.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

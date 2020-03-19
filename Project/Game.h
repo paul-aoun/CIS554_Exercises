@@ -23,12 +23,13 @@
 class Game : public GameHelper {
 
 protected:
+	//Vector to store the components for the game
 	std::vector <GameComponent*> gameComponents;
 
 public:
 	virtual void initializeComponents(); // Initialize game components
-	virtual const std::string printComponents() const; // Prepare a string in a table format with all the components of a game
-	virtual void playGame(); // 
+	virtual const std::string printComponents(); // Prepare a string in a table format with all the components of a game
+	virtual void playGame(); //Function to play the game 
 	virtual const std::vector <GameComponent*>& getComponents() const; // Return the vector of a game's components
 };
 

@@ -3,19 +3,19 @@
 // CIS 554-M401 Object Oriented Programming in C++  //
 //													//
 // Syracuse University								//				
-// HW #5 - Presidents' Day Trivia!					//
+// Final Project - Inheritance and Polymorphism		//
 //													//
-// 2/19/2020										//
+// 3/18/2020										//
 //												    //
-// This is the driver file for the Trivia game.		//
-// It engages the users with the 3 available play	//
-// options, based on which is calls the needed		//
-// functions from PresidentsDay class. It also keeps//
-// the player's score.								//
+// This is the driver file for the games.			//
+// It engages the users with the 2 available games:	//
+// Tic-Tac-Toe and President Trivia game.			//
+// It uses polymorphism to call either of the two	//
+// games and keeps looping between the two until	//
+// the user chooses to exit.						//
 /////////////////////////////////////////////////////
 
-// Homework5.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
+// Main.cpp : This file contains the 'main' function. Program execution begins and ends there.
 #include <iostream>
 #include <iomanip>
 #include <vector>
@@ -24,32 +24,35 @@
 #include "Utilities.h"
 #include "PresidentsDay.h"
 #include "TicTacToe.h"
-#include "Main.h"
 
 int main()
 {
-	
+	//Used to capture player's choice
 	int choice{ 0 };
+
+	//Control the master loop.
 	bool continueLooping{ true };
-	//std::string dummy{ "" }; //dummy variable to pause the screen for the players to read the game result
 	
+	//Output prompts for interacting with the players
 	std::string promptString{ "Please choose your game:\n (1): Presidents' Trivia\n (2): Tic-Tac-Toe\n (3): Exit \nYour choice: " };
 	std::string invalidString{ "Invalid Choice. Please try again." };
 
 	
-	//Loop until the user enters an integer for difficulty level or exists
+	//Loop until the user enters 3 to exit the program
 	while (choice != 3)
 	{
-		//std::system("CLS");
+
 		std::cout << "Welcome to Game CIS 554-M401 Games! \n\n";
 		PresidentsDay pd;
 		TicTacToe ttt;
 
+		//Vector containing the derived games available as the base class objects
 		std::vector <Game*> games{ &pd, &ttt };
 
+		//Get user input
 		choice = Utilities::getIntInputValidate(&promptString, &invalidString);
-		//std::system("CLS");
 
+		//Select which game to play based on the player's choice
 		if ((choice == 1) || (choice == 2))
 		{
 			//Polymorphic playing

@@ -68,26 +68,29 @@ int TicTacToe::playerWins() const
 
 void TicTacToe::initializeComponents()
 {
+	width = 30;
+	height = 18;
+	boxWidth = 10;
+	boxHeight = 6;
+	boxCounter = 1;
+	rowCounter = 0;
 }
 
 // Prepare a string in a table format with all the TicTacToe information
-const std::string TicTacToe::printComponents() const {
+const std::string TicTacToe::printComponents() {
 
 	std::ostringstream output;
-	int width{ 30 };
-	int height{ 18 };
-	int boxWidth{ 10 };
-	int boxHeight{ 6 };
-	int boxCounter{ 1 };
-	int rowCounter{ 0 };
+	
 
 	bool boxIncrementedFirst{ false }, boxIncrementedSecond{ false };
 	std::vector <std::string> rows;
 	std::string row{ "" }, lineRow{ "" };
-
+	rowCounter = 0;
+	//Prepare the line separator
 	for (int i = 0; i <= width + 8; i++)
 		lineRow += "=";
 
+	//Prepare the table and set each box to the value selected by the players
 	for (int i = 0; i <= height; i++) {
 		if ((i % boxHeight) != 0) {
 			for (int j = 0; j <= width; j++) {
@@ -115,18 +118,21 @@ const std::string TicTacToe::printComponents() const {
 	return output.str();
 }
 
+//Play the Tic-Tac-Toe game, looping until one of 3 things happens: 9 guesses are made, 1 of the players won, or 1 of the players quits
 void TicTacToe::playGame()
 {
 	int choice{ 0 };
 	bool continueLooping{ true };
 	std::string promptStrPtr{ "" };
 	std::string promptWrongStrPtr = "Invalid Choice. Please try again.";
-	
+	initializeComponents();
+
 	std::cout << std::setw(18) << "Welcome to Tic-Tac-Toe Game!" << "\n";
 	std::cout << printComponents() << "\n";
 	//Loop until one of the players wins or they reach the maximun number of guess. 
 	while ((playerWins() == 0) && (numberOfGuesses <= 9) && (choice != -1)) {
 		
+		//Loop for Player 1
 		continueLooping = true;
 		while ((continueLooping) && (playerWins() == 0) && (numberOfGuesses <= 9) && (choice != -1)) {
 			promptStrPtr = "\nPlayer 1 enter your box choice (-1 to exit): ";
@@ -142,6 +148,7 @@ void TicTacToe::playGame()
 			}
 		}
 
+		//Loop for Player 2
 		continueLooping = true;
 		while ((continueLooping) && (playerWins() == 0) && (numberOfGuesses <= 9) && (choice != -1)) {
 			promptStrPtr = "\nPlayer 2 enter your box choice (-1 to exit): ";
@@ -167,7 +174,7 @@ void TicTacToe::playGame()
 	}
 }
 
-
+//Return the game components
 const std::vector<GameComponent*>& TicTacToe::getComponents() const
 {
 	return gameComponents;

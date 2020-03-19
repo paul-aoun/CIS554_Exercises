@@ -14,13 +14,15 @@
 #ifndef GAMECOMPONENT_H
 #define GAMECOMPONENT_H
 
+#include <string>
 #include "GameHelper.h"
 
 
 class GameComponent : public GameHelper {
 
-
-
+public:
+	//Pure virtual function to print a Game component
+	virtual std::string toString() const = 0; 
 };
 
 #endif
