@@ -4,17 +4,17 @@
 //													//
 // Syracuse University								//				
 //													//
-// 2/19/2020										//
+// 3/10/2020										//
 //													//
 // This is the header file for the President class.	//
-// It declares the functions needed to manager		//
+// It declares the functions needed to manage		//
 // the president objects.							//
 //////////////////////////////////////////////////////
 #include <string>
 #include "GameComponent.h"
 
-// President class holding all the President's values needed for 
-// the trivia games.
+// President class holding all the President's values needed for the trivia games.
+// Refactored to be derived from the base class GameComponent
 class President : public GameComponent {
 
 private:
@@ -30,4 +30,7 @@ public:
 	const int getOrder() const;
 	const int getRandomOrder() const;
 	const int getGuessedOrder() const;
+
+	//Virtual function to print a Game component
+	virtual std::string toString() const; 
 };

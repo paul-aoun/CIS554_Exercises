@@ -11,6 +11,9 @@
 // the president objects.							//
 //////////////////////////////////////////////////////
 #include <string>
+#include <iostream>
+#include <sstream>
+#include <iomanip>
 #include "President.h"
 
 
@@ -43,4 +46,15 @@ const int President::getRandomOrder() const
 // Get the President guessed order by the user.
 const int President::getGuessedOrder() const{
 	return guessedOrder;
+}
+
+//Return the President's info as a string.
+std::string President::toString() const
+{
+	std::ostringstream output;
+
+	output << std::setw(18) << "President Name: " << getName() << "\n";
+	output << std::setw(18) << "President Number: " << getOrder() << "\n";
+	
+	return output.str();
 }

@@ -4,9 +4,10 @@
 //													//
 // Syracuse University								//				
 //													//
-// 2/19/2020										//
+// 3/16/2020										//
 //													//
 // This is the file for the PresidentDay class.		//
+// It is derived from the base class Game.			//
 // It defines the functions needed to				//
 // play the trivia games about the presidents.		//
 //////////////////////////////////////////////////////
@@ -44,7 +45,7 @@ PresidentsDay::PresidentsDay() {
 
 
 // Prepare a string in a table format with all the presidents
-const std::string PresidentsDay::printComponents() const
+const std::string PresidentsDay::printComponents() 
 {
 	std::ostringstream output;
 
@@ -160,6 +161,7 @@ void PresidentsDay::playGame()
 {
 	//PresidentsDay pd;
 
+	std::system("CLS");
 	//Loop until the user enters an integer for difficulty level or exists
 	while (continueLooping)
 	{
